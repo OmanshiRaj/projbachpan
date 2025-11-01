@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Child Labour Watch - Report Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Child Labour Watch – Report Form</h2>
+
+    <label for="evidence">Upload Evidence</label>
+    <div class="upload-area" id="upload-area">
+      <p>📁 Drop files here or click to upload<br><small>(JPEG, PNG, or MP4 – max 50MB)</small></p>
+      <input type="file" id="evidence" accept=".jpg,.jpeg,.png,.mp4" multiple style="display:none">
+      <div id="file-list"></div>
+    </div>
+
+    <label for="type">Type of Child Labour</label>
+    <select id="type">
+      <option value="">Select type of labour</option>
+      <option>Domestic Work</option>
+      <option>Construction</option>
+      <option>Factory Work</option>
+      <option>Street Vending</option>
+      <option>Agriculture</option>
+      <option>Other</option>
+    </select>
+
+    <label for="age">Approximate Age of Child</label>
+    <input type="number" id="age" min="5" max="17" placeholder="Enter age (5–17)" />
+
+    <label for="details">Additional Details</label>
+    <textarea id="details" placeholder="Please describe what you witnessed, including location details or working conditions..."></textarea>
+
+    <label for="email">Your Email Address (optional)</label>
+    <input type="email" id="email" placeholder="your.emai@example.com />
+    <div class="location-section">
+        <label>Location</label>
+        <p id="location-status" class="error">Unable to retrieve your location. Please enable location access.</p>
+        <button type="button" onclick="getLocation()">📍 Re-detect Location</button>
+        <!-- 🆕 Added after the Location section -->
+<div class="privacy-box">
+    <h3>🔒 Privacy & Confidentiality</h3>
+    <p>
+      Your information is strictly confidential. We collect your email and location solely for
+      investigation purposes and to verify the authenticity of reports. Your data will never be
+      shared with unauthorized parties and is protected under our strict privacy policy.
+    </p>
+  </div>
+  
+  <!-- 🆕 Added new Submit button -->
+  <button class="submit-btn" onclick="submitReport()">Submit Report</button>
+  
+  <!-- 🆕 Added footer note -->
+  <p class="footer-note">
+    For urgent cases involving immediate danger, please contact local authorities or emergency services directly.
+  </p>
+  
+      
+  
+    <script src="script.js"></script>
+  </body>
+  </html>

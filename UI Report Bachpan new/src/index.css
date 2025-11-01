@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Beige background */
+    --background: 60 56% 91%;
+    /* Dark Brown text */
+    --foreground: 21 29% 28%;
+
+    /* Medium Beige cards */
+    --card: 42 45% 81%;
+    --card-foreground: 21 29% 28%;
+
+    --popover: 42 45% 81%;
+    --popover-foreground: 21 29% 28%;
+
+    /* Dark Brown primary */
+    --primary: 21 29% 28%;
+    --primary-foreground: 60 56% 91%;
+
+    /* Lighter brown secondary */
+    --secondary: 42 35% 70%;
+    --secondary-foreground: 21 29% 28%;
+
+    /* Muted tones */
+    --muted: 42 35% 75%;
+    --muted-foreground: 21 29% 33%;
+
+    /* Accent in medium beige */
+    --accent: 42 45% 81%;
+    --accent-foreground: 21 29% 28%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 56% 91%;
+
+    /* Borders in soft brown */
+    --border: 42 35% 70%;
+    --input: 42 45% 81%;
+    --ring: 21 29% 28%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Keep the beige theme in dark mode for consistency */
+    --background: 21 29% 18%;
+    --foreground: 60 56% 91%;
+
+    --card: 21 29% 23%;
+    --card-foreground: 60 56% 91%;
+
+    --popover: 21 29% 23%;
+    --popover-foreground: 60 56% 91%;
+
+    --primary: 60 56% 91%;
+    --primary-foreground: 21 29% 28%;
+
+    --secondary: 21 29% 28%;
+    --secondary-foreground: 60 56% 91%;
+
+    --muted: 21 29% 28%;
+    --muted-foreground: 42 35% 70%;
+
+    --accent: 21 29% 28%;
+    --accent-foreground: 60 56% 91%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 56% 91%;
+
+    --border: 21 29% 28%;
+    --input: 21 29% 28%;
+    --ring: 42 45% 81%;
+    --sidebar-background: 21 29% 18%;
+    --sidebar-foreground: 60 56% 91%;
+    --sidebar-primary: 42 45% 81%;
+    --sidebar-primary-foreground: 21 29% 28%;
+    --sidebar-accent: 21 29% 28%;
+    --sidebar-accent-foreground: 60 56% 91%;
+    --sidebar-border: 21 29% 28%;
+    --sidebar-ring: 42 45% 81%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

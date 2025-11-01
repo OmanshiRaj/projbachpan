@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .logo img {
+    height: 50px;              /* ✅ Adjust size as needed */
+    width: auto;
+    display: block;
+  }
+  /* ✅ NEW: TOP NAVIGATION BAR */
+.navbar {
+  background:black; /* matches site theme */
+  color: #fdfaf6;
+  padding: 7 px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky; /* stays on top when scrolling */
+  top: 0;
+  z-index: 1000;
+}
+
+/* ✅ Navbar inner layout */
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ✅ Logo styling */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fdfaf6;
+  letter-spacing: 0.5px;
+}
+
+/* ✅ Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fdfaf6;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f5d0a9; /* soft highlight on hover */
+}
+
+/* ✅ Responsive menu stacking for small screens */
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 15px;
+  }
+}
+
+  
+  body {
+    font-family: "Inter", sans-serif;
+    color: #3b2e1d;
+    background: #fdfaf6;
+    line-height: 1.6;
+  }
+  
+  /* Containers */
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  /* Hero Section */
+  /* ✅ UPDATED HERO SECTION STYLES */
+.hero {
+  position: relative;                   /* ✅ allows overlay layering */
+  width: 100%;                          /* ✅ full width */
+  min-height: 90vh;                     /* ✅ fill most of the screen */
+  background: url("images/10002.jpg") center/cover no-repeat; /* ✅ background image */
+  display: flex;                        /* ✅ center content */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;                          /* ✅ white text on dark image */
+  overflow: hidden;
+}
+
+/* ✅ NEW: overlay layer for better text contrast */
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);      /* ✅ dark transparent overlay */
+  z-index: 1;
+}
+
+/* ✅ NEW: content sits above overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 100px 80px 20px;
+}
+
+/* ✅ adjust colors for visibility on image */
+.hero .tagline {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff7e6;
+  margin-bottom: 30 px;
+}
+
+.hero h1 span {
+  color: #ffd18b;                       /* ✅ gold highlight */
+}
+
+.hero p {
+  color: #f9f9f9;
+}
+
+/* ✅ buttons visible on image */
+.btn.primary {
+  background:#ffcc7e;
+  color: #4a2b00;
+}
+
+.btn.secondary {
+  border: 2px solid #ffcc7e;
+  color: #ffcc7e;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+
+
+/* ✅ responsive typography */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+  
+  
+  .buttons {
+    margin-top: 25px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .primary {
+    background: #8b572a;
+    color: white;
+  }
+  
+  .secondary {
+    border: 2px solid #8b572a;
+    color: #8b572a;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Stats */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+  
+  .stats h2 {
+    font-size: 2rem;
+    color: #8b572a;
+  }
+  
+  /* Resources */
+  .resources {
+    background: #fffaf3;
+    padding: 80px 20px;
+  }
+  
+  .resources h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .resources .subtitle {
+    text-align: center;
+    margin-top: 10px;
+    color: #7b5b3f;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card .label {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #8b572a;
+    background: #f0e6d9;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+  .card .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #7b5b3f;
+    margin-top: 15px;
+  }
+  
+  .view-all {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  /* ✅ UPDATED: Footer styling */
+footer {
+  background: black;
+  color: #fdfaf6;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* ✅ NEW: stronger heading highlight */
+footer h2 {
+  font-size: 2 rem;          /* slightly larger */
+  margin-bottom: 15px;
+  color: white;             /* beige highlight */
+  text-transform: uppercase;  /* gives it prominence */
+  letter-spacing: 1px;
+}
+
+/* ✅ make subheadings (grid titles) stand out */
+.footer-grid h4 {
+  color: #f5d0a9;             /* beige tone for contrast */
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #f5d0a9;  /* subtle underline highlight */
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* ✅ rearranged grid layout for balance */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* more even */
+  gap: 50px;
+  text-align: left;
+  margin-top: 60px;
+}
+
+/* keep the rest mostly the same */
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid ul li {
+  margin: 6px 0;
+}
+
+.footer-grid a {
+  color: #fdfaf6;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-grid a:hover {
+  text-decoration: underline;
+}
+
+.social a {
+  margin-right: 12px;
+  color: #fdfaf6;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.support {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+

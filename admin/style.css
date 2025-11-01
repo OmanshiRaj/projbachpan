@@ -1,0 +1,145 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f3e7;
+    margin: 0;
+    padding: 0;
+    color: #3e2a1f;
+  }
+  
+  .container {
+    max-width: 700px;
+    background: #f2e0c2;
+    margin: 40px auto;
+    padding: 25px 35px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #5a3b24;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #c5a97b;
+    font-size: 14px;
+    background-color: #fffaf3;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .upload-area {
+    border: 2px dashed #a0764b;
+    border-radius: 12px;
+    text-align: center;
+    padding: 25px;
+    margin-top: 15px;
+    background-color: #f9f3e7;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .upload-area:hover {
+    background-color: #f2e3cb;
+  }
+  
+  #file-list {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .location-section {
+    margin-top: 15px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 13px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    background-color: #7b4b2a;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #5c361d;
+  }
+  
+  .footer-note {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+    color: #6b4e34;
+  }
+/* 🆕 Privacy Section */
+.privacy-box {
+    background-color: #f4e7d3;
+    border: 1px solid #d3b891;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .privacy-box h3 {
+    margin-top: 0;
+    color: #5a3b24;
+  }
+  
+  .privacy-box p {
+    font-size: 14px;
+    color: #3e2a1f;
+    margin-bottom: 0;
+  }
+  
+  /* 🆕 Submit Button */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    background-color: #7b4b2a;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #5c361d;
+  }
+  
+  /* 🆕 Footer Note */
+  .footer-note {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+    color: #6b4e34;
+  }
+    
