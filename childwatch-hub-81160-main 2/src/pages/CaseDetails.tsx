@@ -1,18 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar, MapPin, FileText, CheckCircle, Sparkles, Upload, X } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, FileText, CheckCircle, Sparkles, Camera } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { mockCases } from "@/data/mockCases";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
 
 const CaseDetails = () => {
   const { caseId } = useParams();
   const { toast } = useToast();
   const caseData = mockCases.find(c => c.id === caseId);
-  const [uploadedFiles, setUploadedFiles] = useState<Array<{ url: string; type: string; name: string }>>([]);
 
   if (!caseData) {
     return (
@@ -46,43 +44,6 @@ const CaseDetails = () => {
       title: "AI Investigation Started",
       description: "Analyzing case details and evidence...",
     });
-  };
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (!files) return;
-
-    Array.from(files).forEach(file => {
-      if (file.size > 20 * 1024 * 1024) {
-        toast({
-          title: "File too large",
-          description: `${file.name} exceeds 20MB limit`,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (e.target?.result) {
-          setUploadedFiles(prev => [...prev, {
-            url: e.target!.result as string,
-            type: file.type.startsWith('video') ? 'video' : 'image',
-            name: file.name
-          }]);
-        }
-      };
-      reader.readAsDataURL(file);
-    });
-
-    toast({
-      title: "Evidence Uploaded",
-      description: `${files.length} file(s) added to evidence`,
-    });
-  };
-
-  const removeFile = (index: number) => {
-    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -177,59 +138,36 @@ const CaseDetails = () => {
 
           {/* Sidebar - Evidence & Case Info */}
           <div className="space-y-6">
-            {/* Evidence Section */}
+            {/* Reported Pictures Section */}
             <div className="bg-card rounded-lg p-6 shadow-[var(--shadow-card)]">
               <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Upload className="h-5 w-5" />
-                Reported Evidence
+                <Camera className="h-5 w-5" />
+                Submitted Pictures
               </h3>
               
-              <div className="space-y-4">
-                <div className="border-2 border-dashed border-border rounded-lg p-4 text-center hover:border-primary/50 transition-colors">
-                  <input
-                    type="file"
-                    id="evidence-upload"
-                    className="hidden"
-                    accept="image/*,video/*"
-                    multiple
-                    onChange={handleFileUpload}
-                  />
-                  <label htmlFor="evidence-upload" className="cursor-pointer">
-                    <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-xs text-muted-foreground mb-1">
-                      Upload evidence
-                    </p>
-                    <p className="text-xs text-muted-foreground/70">
-                      Images/Videos (Max 20MB)
-                    </p>
-                  </label>
-                </div>
-
-                <div className="space-y-3">
-                  {uploadedFiles.map((file, index) => (
+              <div className="space-y-3">
+                {caseData.reportedImages && caseData.reportedImages.length > 0 ? (
+                  caseData.reportedImages.map((image, index) => (
                     <div key={index} className="relative group rounded-lg overflow-hidden bg-muted border border-border">
-                      {file.type === 'image' ? (
-                        <img src={file.url} alt={file.name} className="w-full h-48 object-cover" />
-                      ) : (
-                        <video src={file.url} className="w-full h-48 object-cover" controls />
+                      <img 
+                        src={image.url} 
+                        alt={image.caption || `Evidence ${index + 1}`} 
+                        className="w-full h-48 object-cover" 
+                      />
+                      {image.caption && (
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent text-white text-xs p-3">
+                          <p className="truncate font-medium">{image.caption}</p>
+                        </div>
                       )}
-                      <button
-                        onClick={() => removeFile(index)}
-                        className="absolute top-2 right-2 bg-destructive text-destructive-foreground rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
-                      >
-                        <X className="h-4 w-4" />
-                      </button>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent text-white text-xs p-3">
-                        <p className="truncate font-medium">{file.name}</p>
-                      </div>
                     </div>
-                  ))}
-                </div>
-
-                {uploadedFiles.length === 0 && (
-                  <p className="text-center text-xs text-muted-foreground py-3">
-                    No evidence uploaded
-                  </p>
+                  ))
+                ) : (
+                  <div className="text-center py-8">
+                    <Camera className="h-12 w-12 text-muted-foreground/30 mx-auto mb-2" />
+                    <p className="text-xs text-muted-foreground">
+                      No pictures submitted with this report
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
